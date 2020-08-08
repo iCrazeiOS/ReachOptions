@@ -1,3 +1,5 @@
+// Thanks for NSTask, Apple!
+
 @interface NSTask : NSObject
 @property (copy) NSURL *executableURL; 
 @property (copy) NSArray *arguments; 

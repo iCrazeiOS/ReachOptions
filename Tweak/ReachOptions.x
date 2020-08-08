@@ -6,6 +6,7 @@
 %hook SBReachabilityManager
 
 -(void)_setKeepAliveTimer {
+    // This is to disable the timer on reachability. I did this because sometimes the menu would dismiss (much like reachability) without any notice.
     if (isEnabled) {} else {
         %orig;
     }
@@ -24,6 +25,7 @@
         UIAlertAction *six = [UIAlertAction actionWithTitle:@"Enable/Disable WiFi" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROWiFi) exec];}]; // Enable/Disable WiFi
         UIAlertAction *seven = [UIAlertAction actionWithTitle:@"Spotlight Search" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROSpotlight) exec];}]; // Spotlight
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        // Without the "shouldCancel" part, as long as the tweak is enabled the sheet will initialize (even without any actions). I came up with this to solve it.
         if (ss) {
             [alert addAction:one];
             shouldCancel = TRUE;
@@ -57,6 +59,7 @@
             [alert addAction:cancel];
             [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
         }
+    // If the tweak isn't enabled, just open reachability as normal.
     } else {
         %orig;
     }
@@ -66,13 +69,6 @@
 
 // Loads prefs and inits
 %ctor {
-    if ([UIDevice.currentDevice isAnIpod]) {
-        return;
-    }
-
-    if ([UIDevice.currentDevice isAnIpad]) {
-        return;
-    }
 	HBPreferences *preferences = [[HBPreferences alloc] initWithIdentifier:@"com.ajaidan.reachoptionsprefs"];
     [preferences registerBool:&isEnabled default:NO forKey:@"isEnabled"];
 	[preferences registerBool:&ss default:NO forKey:@"1"];

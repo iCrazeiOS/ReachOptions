@@ -8,6 +8,5 @@
 #import "Actions/ROControlCenter.h"
 #import "Actions/ROScreenshot.h"
 #import "Actions/ROSpotlight.h"
-#import "UIDevice+notchedDevice.h"
 
 BOOL isEnabled, ss, cc, lock, respring, uicache, wifi, spotlight, shouldCancel;

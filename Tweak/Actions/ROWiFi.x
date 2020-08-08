@@ -6,9 +6,8 @@
 @implementation ROWiFi
 
 +(void)exec {
-    SBWiFiManager *WiFi = [%c(SBWiFiManager) sharedInstance];
-    BOOL wiFiEnabled = [WiFi wiFiEnabled];
-    [WiFi setWiFiEnabled:!wiFiEnabled];
+    BOOL wiFiEnabled = [[%c(SBWiFiManager) sharedInstance] wiFiEnabled];
+    [[%c(SBWiFiManager) sharedInstance] setWiFiEnabled:!wiFiEnabled];
 }
 
 @end
