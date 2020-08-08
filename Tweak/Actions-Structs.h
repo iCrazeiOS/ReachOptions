@@ -79,3 +79,15 @@
 +(id)server;
 -(void)revealSpotlight;
 @end
+
+// Command interfaces
+
+@interface ReachOptions : NSObject
++(void)Screenshot;
++(void)ControlCenter;
++(void)Lock;
++(void)Respring;
++(void)Spotlight;
++(void)UICache;
++(void)WiFi;
+@end

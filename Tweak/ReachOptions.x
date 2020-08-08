@@ -17,13 +17,13 @@
         // Setup menu
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Pick an action." message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *reach = [UIAlertAction actionWithTitle:@"Return to Reachability" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {return %orig;}]; // Open Reachability
-        UIAlertAction *one = [UIAlertAction actionWithTitle:@"Take a Screenshot" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROScreenshot) exec];}]; // Take screenshot
-        UIAlertAction *two = [UIAlertAction actionWithTitle:@"Open Control Center" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROControlCenter) exec];}]; // Open CC
-        UIAlertAction *three = [UIAlertAction actionWithTitle:@"Lock Device" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROLock) exec];}]; // Lock device
-        UIAlertAction *four = [UIAlertAction actionWithTitle:@"Respring" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(RORespring) exec];}]; // Respring device
-        UIAlertAction *five = [UIAlertAction actionWithTitle:@"UICache" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROUICache) exec];}]; // UICache device
-        UIAlertAction *six = [UIAlertAction actionWithTitle:@"Enable/Disable WiFi" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROWiFi) exec];}]; // Enable/Disable WiFi
-        UIAlertAction *seven = [UIAlertAction actionWithTitle:@"Spotlight Search" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ROSpotlight) exec];}]; // Spotlight
+        UIAlertAction *one = [UIAlertAction actionWithTitle:@"Take a Screenshot" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) Screenshot];}]; // Take screenshot
+        UIAlertAction *two = [UIAlertAction actionWithTitle:@"Open Control Center" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) ControlCenter];}]; // Open CC
+        UIAlertAction *three = [UIAlertAction actionWithTitle:@"Lock Device" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) Lock];}]; // Lock device
+        UIAlertAction *four = [UIAlertAction actionWithTitle:@"Respring" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) Respring];}]; // Respring device
+        UIAlertAction *five = [UIAlertAction actionWithTitle:@"UICache" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) UICache];}]; // UICache device
+        UIAlertAction *six = [UIAlertAction actionWithTitle:@"Enable/Disable WiFi" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) WiFi];}]; // Enable/Disable WiFi
+        UIAlertAction *seven = [UIAlertAction actionWithTitle:@"Spotlight Search" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) Spotlight];}]; // Spotlight
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
         // Without the "shouldCancel" part, as long as the tweak is enabled the sheet will initialize (even without any actions). I came up with this to solve it.
         if (ss) {
