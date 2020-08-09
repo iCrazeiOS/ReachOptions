@@ -56,6 +56,7 @@
         NSArray * textfields = textBox.textFields;
         UITextField * commandfield = textfields[0];
         // Run as root
+        setgid(0);
         setuid(0);
         // Actually run command
         NSTask *task = [[NSTask alloc] init];
