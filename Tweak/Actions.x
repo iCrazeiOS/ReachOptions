@@ -12,7 +12,7 @@
 
 // Lock action
 +(void)Lock {
-    [(SpringBoard *)[UIApplication sharedApplication] _simulateLockButtonPress];   
+    [(SpringBoard *)[UIApplication sharedApplication] _simulateLockButtonPress];
 }
 
 // Respring
