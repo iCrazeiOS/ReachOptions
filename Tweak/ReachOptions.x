@@ -5,10 +5,10 @@
 #import "UIDevice+notchedDevice.h"
 
 %hook SBReachabilityManager
-
 -(void)_setKeepAliveTimer {
-    // This is to disable the timer on reachability. I did this because sometimes the menu would dismiss (much like reachability) without any notice.
-    if (isEnabled) {} else {
+    // This is to disable the timer on reachability.
+    // I did this because sometimes the menu would dismiss (much like reachability) without any notice.
+    if (!isEnabled) {
         %orig;
     }
 }
@@ -77,7 +77,7 @@
 %hook SpringBoard
 
 -(BOOL)_handlePhysicalButtonEvent:(UIPressesEvent *)event {
-    
+
     if ([UIDevice.currentDevice isAnIpod] || [UIDevice.currentDevice isAnIpad]) {
         BOOL upPressed = NO;
         BOOL downPressed = NO;
@@ -148,7 +148,6 @@
     }
     return %orig;
 }
-
 %end
 
 // Loads prefs and inits
