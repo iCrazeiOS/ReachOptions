@@ -52,6 +52,7 @@
     // Add text box
     UIAlertController * textBox = [UIAlertController alertControllerWithTitle: @"Custom command" message: @"Input custom command here." preferredStyle:UIAlertControllerStyleAlert];
     [textBox addTextFieldWithConfigurationHandler:^(UITextField *commandField) {commandField.placeholder = @"launchctl reboot userspace"; commandField.textColor = [UIColor blueColor]; commandField.clearButtonMode = UITextFieldViewModeWhileEditing; commandField.borderStyle = UITextBorderStyleRoundedRect;}];
+    [textBox addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [textBox addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSArray * textfields = textBox.textFields;
         UITextField * commandfield = textfields[0];
