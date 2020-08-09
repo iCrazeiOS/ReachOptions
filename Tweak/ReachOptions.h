@@ -7,7 +7,7 @@
 BOOL isEnabled;
 BOOL ss;
 BOOL cc;
-BOOL lock,;
+BOOL lock;
 BOOL respring;
 BOOL uicache;
 BOOL wifi;
