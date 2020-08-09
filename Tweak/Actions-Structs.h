@@ -1,3 +1,6 @@
+#import <Foundation/Foundation.h>
+#include <unistd.h>
+
 // Thanks for NSTask, Apple!
 
 @interface NSTask : NSObject
@@ -80,9 +83,13 @@
 -(void)revealSpotlight;
 @end
 
+// Declare ReachOptions here so we can use a fancy (Actions) interface there
+@interface ReachOptions : NSObject
+@end
+
 // Command interfaces
 
-@interface ReachOptions : NSObject
+@interface ReachOptions (Actions)
 +(void)Screenshot;
 +(void)ControlCenter;
 +(void)Lock;
@@ -90,4 +97,5 @@
 +(void)Spotlight;
 +(void)UICache;
 +(void)WiFi;
++(void)CustomCommand;
 @end

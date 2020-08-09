@@ -4,4 +4,4 @@
 #import <Cephei/HBPreferences.h>
 #import "Actions-Structs.h"
 
-BOOL isEnabled, ss, cc, lock, respring, uicache, wifi, spotlight, shouldCancel;
+BOOL isEnabled, ss, cc, lock, respring, uicache, wifi, spotlight, custom, shouldCancel;

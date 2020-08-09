@@ -24,6 +24,7 @@
         UIAlertAction *five = [UIAlertAction actionWithTitle:@"UICache" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) UICache];}]; // UICache device
         UIAlertAction *six = [UIAlertAction actionWithTitle:@"Enable/Disable WiFi" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) WiFi];}]; // Enable/Disable WiFi
         UIAlertAction *seven = [UIAlertAction actionWithTitle:@"Spotlight Search" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) Spotlight];}]; // Spotlight
+        UIAlertAction *eight = [UIAlertAction actionWithTitle:@"Execute a Command" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {[%c(ReachOptions) CustomCommand];}]; // Custom Command
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
         // Without the "shouldCancel" part, as long as the tweak is enabled the sheet will initialize (even without any actions). I came up with this to solve it.
         if (ss) {
@@ -54,6 +55,10 @@
             [alert addAction:seven];
             shouldCancel = TRUE;
         }
+        if (custom) {
+            [alert addAction:eight];
+            shouldCancel = TRUE;
+        }
         if (shouldCancel) {
             [alert addAction:reach];
             [alert addAction:cancel];
@@ -78,4 +83,5 @@
 	[preferences registerBool:&uicache default:NO forKey:@"5"];
     [preferences registerBool:&wifi default:NO forKey:@"6"];
     [preferences registerBool:&spotlight default:NO forKey:@"7"];
+    [preferences registerBool:&custom default:NO forKey:@"8"];
 }
