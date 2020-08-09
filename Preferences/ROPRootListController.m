@@ -21,7 +21,7 @@
 }
 
 -(void)respring {
-	[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=Mavalry"]];
+	[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=ReachOptions"]];
 }
 
 @end
