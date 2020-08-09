@@ -10,14 +10,9 @@
 	return _specifiers;
 }
 
--(id)init {
-	self = [super init];
-	if(self) {
-		_respringApplyButton = (_respringApplyButton) ?: [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(respring)];
-		[self.navigationItem setRightBarButtonItem:_respringApplyButton animated:YES];
-
-	}
-	return self;
+-(void)loadView {
+	[super loadView];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStylePlain target:self action:@selector(respring)];
 }
 
 -(void)respring {
