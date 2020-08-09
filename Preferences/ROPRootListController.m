@@ -16,7 +16,20 @@
 }
 
 -(void)respring {
-	[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=ReachOptions"]];
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ReachOptions" message:@"Applying Settings Will Respring Your Device. Are You Sure You Want To Respring Now?" preferredStyle:UIAlertControllerStyleAlert];
+
+	UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Not Now" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+	}];
+
+	UIAlertAction *respring = [UIAlertAction actionWithTitle:@"Respring" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+		pid_t pid;
+		const char* args[] = {"sbreload", NULL, NULL};
+		posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
+	}];
+
+	[alert addAction:dismiss];
+	[alert addAction:respring];
+	[self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
