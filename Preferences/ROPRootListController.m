@@ -1,4 +1,5 @@
 #include "ROPRootListController.h"
+#import <spawn.h>
 
 @implementation ROPRootListController
 
