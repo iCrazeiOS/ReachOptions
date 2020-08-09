@@ -5,14 +5,14 @@
 
 -(BOOL)isNotched {
 
-    if([self isAnIpod] || [self isAnIpad]) { // iPad and iPod are not notched devices
+    if([self isAnIpod] || [self isAnIpad]) {
         return NO;
     }
 
     LAContext *context = [[LAContext alloc] init];
 
     [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil];
-    return context.biometryType == LABiometryTypeFaceID; // only devices with FaceID are notched atm (also the latest iPad PRO so that's why i added an iPad check)
+    return context.biometryType == LABiometryTypeFaceID;
 }
 
 -(BOOL)isAnIpad {
@@ -20,7 +20,7 @@
 }
 
 -(BOOL)isAnIpod {
-    NSString const *model = [UIDevice.currentDevice model]; // get the device model
+    NSString const *model = [UIDevice.currentDevice model];
     return ([model isEqualToString:@"iPod"]);
 }
 
